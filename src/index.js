@@ -23,18 +23,19 @@ app.post('/contact', (req, res) => {
   const mailOptions = {
     from: email,
     to: process.env.USER,
-    subject: 'Nuevo mensaje de contacto',
-    text: `Name: ${name}\nLast Name:${lastName}\nEmail: ${email}\nMessage: ${message}`
+    subject: 'New message from lucianostradiot.com',
+    text: `Name: ${name}\nLast Name:${lastName}\nEmail: ${email}\nMessage: ${message}`,
+    replyTo: email
   };
 
   transporter.sendMail(mailOptions, (error) => {
     if (error) {
       return res.status(500).send(error.toString());
     }
-    res.send('Correo enviado con éxito');
+    res.send('Email sended succesfully');
   });
 });
 
 app.listen(process.env.PORT, () => {
-  console.log(`Servidor iniciado en el puerto ${process.env.PORT}`);
+  console.log(`Server initialized on port: ${process.env.PORT}`);
 });
