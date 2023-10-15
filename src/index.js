@@ -43,3 +43,7 @@ app.post('/contact', (req, res) => {
 app.listen(process.env.PORT, () => {
   console.log(`Server initialized on port: ${process.env.PORT}`);
 });
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
