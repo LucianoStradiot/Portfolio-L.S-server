@@ -24,7 +24,11 @@ app.post('/contact', (req, res) => {
     from: email,
     to: process.env.USER,
     subject: 'New message from lucianostradiot.com',
-    text: `Name: ${name}\nLast Name:${lastName}\nEmail: ${email}\nMessage: ${message}`,
+    text: `Name: ${name}\nLast Name: ${lastName}\nEmail: ${email}\nMessage: ${message}`,
+    html: `<h2 style='color: #683d69'>Name:</h2> <h3>${name}</h3>
+    <h2 style='color: #683d69'>Last Name:</h2> <h3>${lastName}</h3>
+    <h2 style='color: #683d69'>Email:</h2> <h3>${email}</h3>
+    <h2 style='color: #683d69'>Message:</h2><h3>${message}</h3>`,
     replyTo: email
   };
 
